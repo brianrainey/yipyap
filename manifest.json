@@ -11,7 +11,8 @@
   },
 
   "icons": {
-    "48": "icons/yipyap.png"
+    "48": "icons/yipyap.svg",
+    "96": "icons/yipyap.svg"
   },
 
   "permissions": [
