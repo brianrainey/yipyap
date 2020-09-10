@@ -1,0 +1,13 @@
+{
+  "name": "yipyap",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianrainey/yipyap.git"
+  },
+  "homepage": "https://github.com/brianrainey/yipyap#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.0.2"
+  }
+}
