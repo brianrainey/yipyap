@@ -5,8 +5,15 @@ function getTlw() {
 }
 
 function handleCreated(id, bookmarkInfo) {
-    var newTitle = bookmarkInfo.title + " -> [" + getTlw() + getTlw() + "]";
-    browser.bookmarks.update(id, {"title": newTitle});
+    var title = bookmarkInfo.title;
+    if (!alreadyTagged(title)) {
+        var newTitle = title + " *[" + getTlw() + getTlw() + "]";
+        browser.bookmarks.update(id, {"title": newTitle});    
+    }
+}
+
+function alreadyTagged(title) {
+    return /\*\[.{6}\]/.exec(title) !== null;
 }
   
 browser.bookmarks.onCreated.addListener(handleCreated);
