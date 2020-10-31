@@ -6,7 +6,7 @@ function getTlw() {
 
 function handleCreated(id, bookmarkInfo) {
     var title = bookmarkInfo.title;
-    if (!alreadyTagged(title)) {
+    if (isBookmark(bookmarkInfo) && !alreadyTagged(title)) {
         var newTitle = title + " *[" + getTlw() + getTlw() + "]";
         browser.bookmarks.update(id, {"title": newTitle});    
     }
@@ -14,6 +14,11 @@ function handleCreated(id, bookmarkInfo) {
 
 function alreadyTagged(title) {
     return /\*\[.{6}\]/.exec(title) !== null;
+}
+
+function isBookmark(bookmarkInfo) {
+    return bookmarkInfo.type === "bookmark";
+
 }
   
 browser.bookmarks.onCreated.addListener(handleCreated);
